@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Colori del tema (sovrascritti per ogni affiliato dal layout) */
+  --ocean-50: 230 245 252;
+  --ocean-100: 204 235 249;
+  --ocean-200: 153 215 243;
+  --ocean-300: 102 195 237;
+  --ocean-400: 51 179 238;
+  --ocean-500: 0 160 233;
+  --ocean-600: 0 128 186;
+  --ocean-700: 0 102 148;
+  --ocean-800: 0 77 111;
+  --ocean-900: 11 31 58;
+  --coral-50: 254 243 230;
+  --coral-100: 253 231 204;
+  --coral-200: 250 207 153;
+  --coral-300: 248 183 102;
+  --coral-400: 246 153 64;
+  --coral-500: 244 126 17;
+  --coral-600: 208 106 13;
+  --coral-700: 181 90 10;
+  --coral-800: 138 68 8;
+  --coral-900: 95 47 5;
+}
+
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 210 50% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 50% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 50% 12%;
+    --primary: 199 100% 46%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 30 92% 51%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 210 20% 94%;
+    --muted-foreground: 210 15% 45%;
+    --accent: 30 92% 51%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 20% 88%;
+    --input: 210 20% 88%;
+    --ring: 199 100% 46%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .hero-gradient {
+    background: linear-gradient(135deg, rgba(11,31,58,0.6) 0%, rgba(0,160,233,0.3) 50%, rgba(11,31,58,0.7) 100%);
+  }
+  
+  .card-overlay {
+    background: linear-gradient(to top, rgba(11,31,58,0.9) 0%, rgba(11,31,58,0.4) 40%, transparent 100%);
+  }
+  
+  .premium-card {
+    @apply relative overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-500;
+  }
+  
+  .premium-card:hover {
+    @apply shadow-2xl;
+    transform: translateY(-8px);
+  }
+  
+  .badge-promo {
+    @apply bg-gradient-to-r from-coral-500 to-coral-400 text-white px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide;
+  }
+  
+  .badge-bestseller {
+    @apply bg-gradient-to-r from-amber-400 to-yellow-500 text-gray-900 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide;
+  }
+  
+  .badge-lastminute {
+    @apply bg-gradient-to-r from-red-500 to-rose-500 text-white px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide;
+  }
+  
+  .badge-new {
+    @apply bg-gradient-to-r from-teal-500 to-emerald-500 text-white px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide;
+  }
+  
+  .cta-whatsapp {
+    @apply bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl;
+  }
+  
+  .cta-primary {
+    @apply bg-gradient-to-r from-ocean-500 to-ocean-600 hover:from-ocean-600 hover:to-ocean-700 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl;
+  }
+  
+  .cta-coral {
+    @apply bg-gradient-to-r from-coral-500 to-coral-400 hover:from-coral-600 hover:to-coral-500 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-ocean-900 mb-4;
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .section-subtitle {
+    @apply text-lg text-gray-600 max-w-2xl mx-auto;
+  }
+  
+  .glass-effect {
+    @apply bg-white/80 backdrop-blur-md;
+  }
+  
+  .input-travel {
+    @apply w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-ocean-500 focus:ring-2 focus:ring-ocean-200 transition-all duration-300 bg-white;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--ocean-500));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--ocean-600));
+}
+
+/* Hide scrollbar for horizontal sliders */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
